@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model MyViewModel
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+<div class="text-center">
+    <h2>Add Chef</h2>
+    @await Html.PartialAsync("_AddChef", Model.Chef)
+
+    <h2>All Chefs</h2>
+    <ul>
+        @foreach(var chef in Model.AllChefs)
+        {
+            <li class="text-start">@chef.FirstName @chef.LastName</li>
+            <ul>
+                @foreach(var p in chef.Dishesmaked)
+                {
+                    <li class="text-start">@p.DisheName a @p.Calories</li>
+                }
+            </ul>
+        }
+    </ul>
+</div>

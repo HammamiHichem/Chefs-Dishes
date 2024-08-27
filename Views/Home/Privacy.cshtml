@@ -1,0 +1,15 @@
+﻿@model MyViewModel
+
+<div class="text-center">
+    <h2>Add Dishe</h2>
+    @await Html.PartialAsync("_AddDishe", Model.Dishe)
+
+    <h2>All Dishes</h2>
+    @foreach(var dishe in Model.AllDishes)
+    {
+        <div class="dishe-item">
+            <p><strong>@dishe.DisheName</strong> is made by: @dishe.Chef.FirstName @dishe.Chef.LastName</p>
+            <p>Description: @dishe.Description</p>
+        </div>
+    }
+</div>
